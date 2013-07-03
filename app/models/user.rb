@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
   validates :phone, format: {with: /\A\+?\d{11,12}\z/}, allow_blank: true
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
+
+  after_validation {self.errors.messages.delete(:password_digest)}
 end

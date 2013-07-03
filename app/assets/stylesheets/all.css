@@ -89,6 +89,10 @@
     color: #6a5acd;
 }
 
+.b-errors li {
+    list-style: none;
+}
+
 .b-errors {
     margin: 8px 5px 0;
     color: #ff4500;

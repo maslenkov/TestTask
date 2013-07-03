@@ -3,9 +3,9 @@
 <% end %>
 Register:
 <!--TODO: об обязательности ввода чего либо в конкретное поле будем оповещать через "ошибку"-->
-<!--<div class="b-errors">-->
-<!--Errors in inputs will be reported by this div-->
-<!--</div>-->
+<div class="b-errors">
+  <%= render 'error_messages' %>
+</div>
 
 <%= form_for(@user) do |f| %>
     <%= f.text_field :email, class: 'e-input', placeholder: 'Email' %>
@@ -14,10 +14,3 @@ Register:
     <%= f.password_field :password_confirmation, class: 'e-input', placeholder: 'Repeat password' %>
     <%= f.submit 'Register', class: 'e-button' %>
 <% end %>
-
-
-<!--<input type="text" class="e-input" placeholder="Email" name="email">-->
-<!--<input type="text" class="e-input" placeholder="Name" name="name">-->
-<!--<input type="password" class="e-input" placeholder="Password" name="password">-->
-<!--<input type="password" class="e-input" placeholder="Repeat password" name="password_confirm">-->
-<!--<button class="e-button">Register</button>-->

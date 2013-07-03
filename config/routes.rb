@@ -5,6 +5,8 @@ TestTask::Application.routes.draw do
       #TODO: нужны маршруты для контроллера сессия
       #TODO: индексПейдж должен делать редирект на сессия/нью, который, собственно отображает форму входа)
 
+  get '/signup', to: 'users#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
