@@ -1,0 +1,95 @@
+.wrapper * {
+    margin: 0;
+    padding: 0;
+    font-family: Segoi UI, Segoi UI Light, sans-serif;
+}
+
+.wrapper {
+    background-color: green;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.wrapper-background {
+    position: fixed;
+    background-color: #5f9ea0;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper-background-img {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.wrapper-content {
+    margin: 0 auto;
+    width: 400px;
+    color: white;
+    position: relative;
+}
+
+.wrapper-content-header, .wrapper-content-body {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 10px;
+}
+
+.wrapper-content-header {
+    margin-top: 20px;
+}
+.wrapper-content-body {
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 420px) {
+    .wrapper-content {
+        width: 95%;
+    }
+}
+
+/*bem*/
+.e-input {
+    background-color: black;
+    border: medium none;
+    color: white;
+    margin-top: 10px;
+    padding: 5px 0 5px 5px;
+    width: 98%;
+}
+
+.e-button {
+    background-color: #68B0F7;
+    border: medium none;
+    color: white;
+    margin-top: 10px;
+    padding: 5px;
+    width: 140px;
+}
+
+.e-button:hover {
+    background-color: #A0CBF6;
+}
+
+.e-button:active {
+    background-color: #5681AC;
+}
+
+.e-link {
+    color: #87ceeb;
+}
+
+.e-link:active {
+    color: #ff4500;
+}
+
+.e-link:visited {
+    color: #6a5acd;
+}
+
+.b-errors {
+    margin: 8px 5px 0;
+    color: #ff4500;
+}

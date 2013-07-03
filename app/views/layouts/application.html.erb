@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="wrapper">
+  <div class="wrapper-background">
+    <%= image_tag 'saha.jpg', class: 'wrapper-background-img' %>
+  </div>
+  <div class="wrapper-content">
+    <div class="wrapper-content-header">
+      <% :in_out_ui %>
+      <%= content_for?(:in_out_ui) ? yield(:in_out_ui) : (link_to 'log_out', '#', class: 'e-link') %>
+    </div>
+    <div class="wrapper-content-body">
+      <% :content %>
+      <%= yield %>
+    </div>
+  </div>
+</div>
 </body>
 </html>

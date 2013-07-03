@@ -20,6 +20,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+
+  # возможно последующие два должны быть лишь в группе тест, нет времени проверять
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
+end
+
+gem 'bcrypt-ruby'
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
