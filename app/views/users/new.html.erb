@@ -1,0 +1,23 @@
+<% content_for :in_out_ui do %>
+<%= link_to 'Login form', '#', class: 'e-link' %>
+<% end %>
+Register:
+<!--TODO: об обязательности ввода чего либо в конкретное поле будем оповещать через "ошибку"-->
+<!--<div class="b-errors">-->
+<!--Errors in inputs will be reported by this div-->
+<!--</div>-->
+
+<%= form_for(@user) do |f| %>
+    <%= f.text_field :email, class: 'e-input', placeholder: 'Email' %>
+    <%= f.text_field :name, class: 'e-input', placeholder: 'Name' %>
+    <%= f.password_field :password, class: 'e-input', placeholder: 'Password' %>
+    <%= f.password_field :password_confirmation, class: 'e-input', placeholder: 'Repeat password' %>
+    <%= f.submit 'Register', class: 'e-button' %>
+<% end %>
+
+
+<!--<input type="text" class="e-input" placeholder="Email" name="email">-->
+<!--<input type="text" class="e-input" placeholder="Name" name="name">-->
+<!--<input type="password" class="e-input" placeholder="Password" name="password">-->
+<!--<input type="password" class="e-input" placeholder="Repeat password" name="password_confirm">-->
+<!--<button class="e-button">Register</button>-->
