@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @user = User.first
+    #TODO: заменить на кьюрент пользователя
+    @user = current_user
   end
 
   def new
@@ -9,9 +10,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.sav
-      #TODO: проверить тест, затем раскоментить сию строку
-    # redirect_to '/users'
+    if @user.save
+      sign_in @user
+      redirect_to '/users'
     else
       render 'new'
     end

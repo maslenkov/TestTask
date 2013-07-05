@@ -9,12 +9,15 @@ describe User do
   it {should respond_to(:email)}
   it {should respond_to(:name)}
   it {should respond_to(:phone)}
+  it {should respond_to(:id)}
   it {should respond_to(:password_digest)}
   it {should respond_to(:password)}
   it {should respond_to(:password_confirmation)}
   it {should respond_to(:authenticate)}
 
   it {should be_valid}
+
+  #TODO: делать ли проверку верности создания айди?(учитывая, что я использую его как токен для сессии - нужно)
 
   describe 'email' do
     describe 'when email is not present' do

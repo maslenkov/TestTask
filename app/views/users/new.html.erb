@@ -2,10 +2,7 @@
 <%= link_to 'Login form', '#', class: 'e-link' %>
 <% end %>
 Register:
-<!--TODO: об обязательности ввода чего либо в конкретное поле будем оповещать через "ошибку"-->
-<div class="b-errors">
-  <%= render 'error_messages' %>
-</div>
+<%= render 'shared/error_messages' %>
 
 <%= form_for(@user) do |f| %>
     <%= f.text_field :email, class: 'e-input', placeholder: 'Email' %>

@@ -1,6 +1,9 @@
 <%= @user.name %><br/>
         Email: <%= @user.email %><br/>
         Phone: <% if @user.phone%><%= @user.phone %><br/>
-<% else %>please <%= link_to 'add phone', '#', class: 'e-link' %><br/>
+    <%
+       #TODO: Нужно переделать линк эдит юзер пас на возможность работы только с кьюрент юзером, соответственно и в его вызове не должно быть айди
+    %>
+<% else %>please <%= link_to 'add phone', edit_user_path(@user.id), class: 'e-link' %><br/>
 <% end %>
-        <%= link_to 'Edit profile', '#', class: 'e-link' %>
+        <%= link_to 'Edit profile', 'edit_user_path', class: 'e-link' %>

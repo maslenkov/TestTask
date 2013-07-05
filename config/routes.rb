@@ -1,11 +1,16 @@
 TestTask::Application.routes.draw do
 
   resources :users, except: [:destroy, :show]
-      #TODO: вместо шоу нужно оствить индекс, который будет показывать инфу current_user-а
       #TODO: нужны маршруты для контроллера сессия
       #TODO: индексПейдж должен делать редирект на сессия/нью, который, собственно отображает форму входа)
+      #TODO: нужно пересмотреть все роуты и те, где используется айди изменить, так как вместо айди везде должен быть кьюрент_юзер
 
   get '/signup', to: 'users#new'
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +61,7 @@ TestTask::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'sessions#new'
 
   # See how all your routes lay out with "rake routes"
 

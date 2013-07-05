@@ -1,0 +1,20 @@
+<% content_for :in_out_ui do %>
+Log in
+    <!--#TODO: проверить все ссылки, что бы вместо # были правильные маршруты-->
+    <% if @errors %>
+        <div class="b-errors">
+            <ul>
+            <% @errors.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= form_for(:session, url: sessions_path) do |f| %>
+        <%= f.text_field :email, class: 'e-input', placeholder: 'Email' %>
+        <%= f.password_field :password, class: 'e-input', placeholder: 'Password' %>
+        <%= f.submit 'Sign in', class: 'e-button' %>
+    <% end %>
+<% end %>
+Welcome!!!
