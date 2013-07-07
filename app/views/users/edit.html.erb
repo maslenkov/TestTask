@@ -1,0 +1,11 @@
+Edit profile:
+<%= render 'shared/error_messages' %>
+
+<%= form_for @user, url: '/users' do |f| %>
+    <%= f.text_field :email, placeholder: :Email, class: 'e-input' %>
+    <%= f.text_field :name, placeholder: :Name, class: 'e-input' %>
+    <%= f.text_field :phone, placeholder: :Phone, class: 'e-input' %>
+    <%= f.password_field :password, placeholder: :Password, class: 'e-input' %>
+    <%= f.password_field :password_confirmation, placeholder: 'Repeat password', class: 'e-input' %>
+    <%= f.submit :Update, class: 'e-button' %>
+<% end %>

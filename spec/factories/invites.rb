@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :invite do
-    invite "MyString"
-    status false
+    sequence(:invite)      {|n| "invite##{n}" }
+    status true
   end
 end

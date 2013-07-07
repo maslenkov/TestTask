@@ -1,11 +1,15 @@
 TestTask::Application.routes.draw do
 
-  resources :users, except: [:destroy, :show]
+  resources :users, except: [:destroy, :show, :edit, :updatem, :new]
       #TODO: нужны маршруты для контроллера сессия
       #TODO: индексПейдж должен делать редирект на сессия/нью, который, собственно отображает форму входа)
       #TODO: нужно пересмотреть все роуты и те, где используется айди изменить, так как вместо айди везде должен быть кьюрент_юзер
 
+  #TODO - убрать лишние роуты
+  get '/signup/:invite', to: 'users#new', as: 'signup'
   get '/signup', to: 'users#new'
+  match '/users', to: 'users#update', via: :put
+  match '/users/edit', to: 'users#edit', via: :get
 
   resources :sessions, only: [:new, :create, :destroy]
 

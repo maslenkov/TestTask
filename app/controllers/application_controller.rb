@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     sign_out
     super
   end
+
+  protected
+    def signed_out_user
+      redirect_to '/users' if signed_in?
+    end
 end

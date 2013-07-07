@@ -30,16 +30,37 @@ describe 'Authentication' do
       #TODO: следующая строка должна быть такова: it {should have_content(user.name)}
       it {should have_content(user.name)}
       it {should have_link('Log out', href: signout_path)}
-      #TODO: следующий тест - так сделан, т.к. нужно переделать эдит юзер пас на работу с кьюрент юзером
-      #TODO: нужно поиском убедится, что User.first больше ни где не используется
-      #TODO: элит_юзер_пас нужно переделать в роутах, что бы он не брал айдишник, а брал кьюрент юзера и потом поменять путь здесь и в юзер/индекс
-      it {should have_link('Edit profile', href: 'edit_user_path')}
+      it {should have_link('Edit profile', href: '/users/edit')}
       it {should_not have_link('Log in form')}
       it {should_not have_selector('.b-errors')}
+
+      describe 'for signed-in users' do
+        describe 'visiting signin page' do
+          before {visit '/signin'}
+          it {should have_content(user.name)}
+          it {should have_link('Log out')}
+        end
+        describe 'visiting signin page' do
+          before {visit '/signup'}
+          it {should have_content(user.name)}
+          it {should have_link('Log out')}
+        end
+      end
 
       describe 'followed by sign out' do
         before {click_link 'Log out'}
         it {should have_selector('.wrapper-content-header', text: 'Log in')}
+
+        describe 'for non-signed-in users' do
+          describe 'visiting the profile page' do
+            before {visit '/users'}
+            it {should have_content('Welcome!!!')}
+          end
+          describe 'visiting the edit page' do
+            before {visit '/users/edit'}
+            it {should have_content('Welcome!!!')}
+          end
+        end
       end
     end
   end

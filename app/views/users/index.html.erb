@@ -4,6 +4,6 @@
     <%
        #TODO: Нужно переделать линк эдит юзер пас на возможность работы только с кьюрент юзером, соответственно и в его вызове не должно быть айди
     %>
-<% else %>please <%= link_to 'add phone', edit_user_path(@user.id), class: 'e-link' %><br/>
+<% else %>please <%= link_to 'add phone', '/users/edit', class: 'e-link' %><br/>
 <% end %>
-        <%= link_to 'Edit profile', 'edit_user_path', class: 'e-link' %>
+        <%= link_to 'Edit profile', '/users/edit', class: 'e-link' %>
