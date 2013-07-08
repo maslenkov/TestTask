@@ -32,7 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '= 3.0.1'
 
 gem 'jquery-rails'
 
