@@ -1,8 +1,8 @@
 <% content_for :in_out_ui do %>
-<%= link_to 'Login form', '#', class: 'e-link' %>
+<%= link_to 'Login form', signin_path, class: 'e-link' %>
 <% end %>
 Register:
-<%= render 'shared/error_messages' %>
+<%= render 'shared/user_errors_messages' %>
 
 <%= form_for(@user) do |f| %>
     <%= f.text_field :email, class: 'e-input', placeholder: 'Email' %>

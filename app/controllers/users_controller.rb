@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_filter :check_invitation, only: [:new]
 
   def index
-    #TODO: заменить на кьюрент пользователя
     @user = current_user
   end
 
@@ -28,6 +27,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
     if @user.update_attributes(params[:user])
       redirect_to '/users'
     else

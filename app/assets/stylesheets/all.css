@@ -97,3 +97,13 @@
     margin: 8px 5px 0;
     color: #ff4500;
 }
+
+.b-table {
+    width: 100%
+}
+
+.b-debug {
+    border-top: 1px solid white;
+    padding-top: 3px;
+    font-size: 0.6em;
+}

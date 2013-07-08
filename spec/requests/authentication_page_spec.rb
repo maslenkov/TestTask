@@ -1,8 +1,6 @@
 require 'spec_helper'
 include SessionsHelper
 
-#TODO: нужны тесты провеяющие мои бефо фильтры
-#(допуск к реге по инвайту, редирект на мейн пейдж и доступ к реге, редирект на профайл и доступ к остальным страницам)
 describe 'Authentication' do
   subject {page}
 
@@ -12,7 +10,6 @@ describe 'Authentication' do
     it {should have_selector('.wrapper-content-header', text: 'Log in')}
     it {should have_selector('.wrapper-content-body', text: 'Welcome!!!')}
 
-    #TODO: тесты для юзера и его настроек находятся в следующем разделе учебника, т.ч. не торопимся...
     describe 'with invalid info' do
       before {click_button 'Sign in'}
       it {should have_selector('.wrapper-content-header', text: 'Log in')}
@@ -27,7 +24,6 @@ describe 'Authentication' do
         click_button 'Sign in'
       end
 
-      #TODO: следующая строка должна быть такова: it {should have_content(user.name)}
       it {should have_content(user.name)}
       it {should have_link('Log out', href: signout_path)}
       it {should have_link('Edit profile', href: '/users/edit')}

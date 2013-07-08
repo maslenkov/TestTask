@@ -51,7 +51,6 @@ describe 'User pages' do
       end
 
       describe 'with valid input' do
-      #TODO: нужно добавить тест проверки инвайта
         before do
           fill_in 'Name', with: @user.name
           fill_in 'Email', with: @user.email
@@ -98,20 +97,23 @@ describe 'User pages' do
       end
 
       describe 'with invalid information' do
-        before {click_button 'Update'}
+        before do
+          fill_in 'Password', with: user.password
+          click_button 'Update'
+        end
 
         it {should have_selector('.b-errors')}
       end
 
-      #TODO: нужны тесты и возможность для обновления данных без смены пароля
+      #TODO: хорошо было бы иметь тест проверки изменения пароля(но мне кажется он длинноват для исполнения сейчас)
       describe 'with valid information' do
         let(:new_name) {'New Name'}
         let(:new_email) {'new@email.com'}
         before do
           fill_in 'Name', with: new_name
           fill_in 'Email', with: new_email
-          fill_in 'Password', with: user.password
-          fill_in 'Repeat password', with: user.password_confirmation
+          #fill_in 'Password', with: user.password
+          #fill_in 'Repeat password', with: user.password_confirmation
           click_button 'Update'
         end
         it {should_not have_selector('.b-errors')}

@@ -17,8 +17,6 @@ describe User do
 
   it {should be_valid}
 
-  #TODO: делать ли проверку верности создания айди?(учитывая, что я использую его как токен для сессии - нужно)
-
   describe 'email' do
     describe 'when email is not present' do
       before {@user.email = '   '}

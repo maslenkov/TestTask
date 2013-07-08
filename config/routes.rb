@@ -1,8 +1,6 @@
 TestTask::Application.routes.draw do
 
   resources :users, except: [:destroy, :show, :edit, :updatem, :new]
-      #TODO: нужны маршруты для контроллера сессия
-      #TODO: индексПейдж должен делать редирект на сессия/нью, который, собственно отображает форму входа)
       #TODO: нужно пересмотреть все роуты и те, где используется айди изменить, так как вместо айди везде должен быть кьюрент_юзер
 
   #TODO - убрать лишние роуты
@@ -15,6 +13,11 @@ TestTask::Application.routes.draw do
 
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :get
+
+  scope '/admin' do
+    get 'invites', to: 'admin/invites#index', as: 'invites'
+    post 'invites', to: 'admin/invites#create', as: 'invites'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

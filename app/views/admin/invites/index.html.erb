@@ -1,0 +1,15 @@
+<% content_for :in_out_ui do %>
+    Send invite to:
+    <%= render 'shared/error_messages' %>
+
+    <%= form_for :sender, url: invites_path do |f| %>
+        <%= f.text_field :email, placeholder: :Email, class: 'e-input' %>
+        <%= f.submit :Send, class: 'e-button' %>
+    <% end %>
+<% end %>
+
+<table class='b-table'>
+  <% @invites.each do |invite| %>
+    <tr><td><%= invite.invite %></td><td><%= invite.status ? 'open' : 'close' %></td></tr>
+  <% end %>
+</table>
