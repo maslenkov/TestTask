@@ -19,7 +19,7 @@ describe 'User pages' do
         before do
           @invite.status = false
           @invite.save
-          visit signup_path('')
+          visit '/signup'
         end
         it {should have_content('Welcome!!!')}
         after do

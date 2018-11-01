@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'admin/invites page' do
   before(:all) {@invite = FactoryGirl.create(:invite)}
-  before {visit invites_path}
+  before {visit admin_invites_path}
 
   subject {page}
 

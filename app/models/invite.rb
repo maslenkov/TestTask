@@ -1,5 +1,4 @@
 class Invite < ActiveRecord::Base
-  attr_accessible :invite, :status
 
   validates_uniqueness_of :invite
 

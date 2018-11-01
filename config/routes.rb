@@ -1,22 +1,23 @@
 TestTask::Application.routes.draw do
 
-  resources :users, except: [:destroy, :show, :edit, :updatem, :new]
+  resources :users, except: [:destroy, :show, :edit, :update, :new]
       #TODO: нужно пересмотреть все роуты и те, где используется айди изменить, так как вместо айди везде должен быть кьюрент_юзер
 
   #TODO - убрать лишние роуты
   get '/signup/:invite', to: 'users#new', as: 'signup'
   get '/signup', to: 'users#new'
-  match '/users', to: 'users#update', via: :put
+  match '/users', to: 'users#update', via: [:put, :patch]
   match '/users/edit', to: 'users#edit', via: :get
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signin', to: 'sessions#new'
+  match '/signin', to: 'sessions#new', via: :get
   match '/signout', to: 'sessions#destroy', via: :get
 
-  scope '/admin' do
-    get 'invites', to: 'admin/invites#index', as: 'invites'
-    post 'invites', to: 'admin/invites#create', as: 'invites'
+  namespace 'admin' do
+    resources :invites, only: [:index, :create]
+    # match 'invites', to: 'admin/invites#create', as: 'invites', via: [:get, :post]
+    # match 'invites', to: 'admin/invites#create', as: 'invites', via: [:post]
   end
 
   # The priority is based upon order of creation:

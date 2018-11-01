@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :phone, :password, :password_confirmation
   has_secure_password
 
   before_save do |user|

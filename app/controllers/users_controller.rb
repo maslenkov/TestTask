@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(permitted_params)
     if @user.save
       sign_in @user
       redirect_to '/users'
@@ -27,9 +27,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
-    if @user.update_attributes(params[:user])
+    permitted_params.delete(:password) if permitted_params[:password].blank?
+    permitted_params.delete(:password_confirmation) if permitted_params[:password_confirmation].blank?
+    if @user.update_attributes(permitted_params)
       redirect_to '/users'
     else
       render 'edit'
@@ -48,5 +48,9 @@ class UsersController < ApplicationController
       else
         redirect_to root_path
       end
+    end
+
+    def permitted_params
+      params.require(:user).permit(:email, :name, :phone, :password, :password_confirmation)
     end
 end
