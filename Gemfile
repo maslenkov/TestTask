@@ -2,12 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '~>4.2'
 gem 'rake', '< 11.0'
+gem 'puma'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem 'pg', '~> 0.20'
+  # gem 'pg', '~> 0.20'
+  gem 'sqlite3'
   gem 'rails_12factor'
 end
 
@@ -48,8 +50,14 @@ gem 'jquery-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+group :development do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-chruby'
+  gem 'capistrano3-puma'
+  # gem 'capistrano-sidekiq'
+  gem 'capistrano-npm'
+end
 
 # To use debugger
 # gem 'debugger'
