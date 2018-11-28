@@ -9,7 +9,7 @@ gem 'puma'
 
 group :production do
   # gem 'pg', '~> 0.20'
-  gem 'sqlite3'
+  gem 'mysql2'
   gem 'rails_12factor'
 end
 
